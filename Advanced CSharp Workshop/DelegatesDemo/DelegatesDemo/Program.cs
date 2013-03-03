@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DelegatesDemo
 {
-    class Program
+    internal class Program
     {
         public delegate void Say(string subject);
 
@@ -20,12 +16,14 @@ namespace DelegatesDemo
             Console.WriteLine("Goodbye " + subject);
         }
 
+        public static event Say SayEvent;
+
         private static void Main(string[] args)
         {
             Say hello = Hello;
             Say goodbye = Goodbye;
 
-            Say both = (Say)Delegate.Combine(hello, goodbye);
+            var both = (Say) Delegate.Combine(hello, goodbye);
 
             Say bothInDifferentWay = hello + goodbye;
 
@@ -42,6 +40,14 @@ namespace DelegatesDemo
             bothInDifferentWay("test");
 
             Console.ReadKey();
+        }
+    }
+
+    public class DifferentClass
+    {
+        public void SomeMethod()
+        {
+            Program.SayEvent += delegate(string subject) {  };
         }
     }
 }
