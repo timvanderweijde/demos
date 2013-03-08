@@ -15,7 +15,7 @@ namespace Exercise5
 
         private static void LogPropertyNameAndValue<T>(Func<T> accessProperty)
         {
-            Console.WriteLine("Property value:{0}", accessProperty());
+            Console.WriteLine("Property name: {0}, value:{1}", "unknown", accessProperty());
         }
     }
 
