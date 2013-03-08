@@ -9,10 +9,10 @@ namespace Exercise
         {
             var myClass = new Class();
 
-            foreach (Student student in myClass)
-            {
-                Console.WriteLine(student.Name);
-            }
+            //foreach (Student student in myClass)
+            //{
+            //    Console.WriteLine(student.Name);
+            //}
 
             Console.ReadKey();
         }
