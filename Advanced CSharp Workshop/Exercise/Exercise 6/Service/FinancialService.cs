@@ -6,7 +6,7 @@ namespace Exercise_6.Service
     {
         public decimal GetRevenue(Region region)
         {
-            // Some really complicated calculation, or its using Oracle
+            // Some really complicated calculation, or maybe its using Oracle
             Thread.Sleep(5000);
 
             switch (region)
