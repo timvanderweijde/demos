@@ -6,21 +6,36 @@ namespace Exercise5
     {
         private static void Main(string[] args)
         {
-            var person = new Person {Name = "bill"};
+            var mapper = new Mapper<Person, PersonDto>();
+            mapper.AddMapping(x => x.Name, y => y.FullName);
+            mapper.AddMapping(x => x.Age, y => y.AgeInYears);
 
-            LogPropertyNameAndValue(() => person.Name);
+            var person = new Person
+                {
+                    Name = "Chuck Norris",
+                    Age = 34,
+                    Title = "Professional Wrecketeer"
+                };
+
+            PersonDto personDto = mapper.Map(person);
+
+            Console.WriteLine("Name: {0}", personDto.FullName);
+            Console.WriteLine("Age: {0}", personDto.AgeInYears);
 
             Console.ReadKey();
-        }
-
-        private static void LogPropertyNameAndValue<T>(Func<T> accessProperty)
-        {
-            Console.WriteLine("Property name: {0}, value:{1}", "unknown", accessProperty());
         }
     }
 
     public class Person
     {
         public string Name { get; set; }
+        public string Title { get; set; }
+        public int Age { get; set; }
+    }
+
+    public class PersonDto
+    {
+        public string FullName { get; set; }
+        public int AgeInYears { get; set; }
     }
 }
