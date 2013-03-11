@@ -1,26 +1,26 @@
 ﻿using System;
 
-namespace Exercise5
+namespace Exercise_5
 {
     internal class Program
     {
         private static void Main(string[] args)
         {
-            var mapper = new Mapper<Person, PersonDto>();
-            mapper.AddMapping(x => x.Name, y => y.FullName);
-            mapper.AddMapping(x => x.Age, y => y.AgeInYears);
+            //var mapper = new Mapper<Person, PersonDto>();
+            //mapper.AddMapping(x => x.Name, y => y.FullName);
+            //mapper.AddMapping(x => x.Age, y => y.AgeInYears);
 
-            var person = new Person
-                {
-                    Name = "Chuck Norris",
-                    Age = 34,
-                    Title = "Professional Wrecketeer"
-                };
+            //var person = new Person
+            //    {
+            //        Name = "Chuck Norris",
+            //        Age = 34,
+            //        Title = "Professional Wrecketeer"
+            //    };
 
-            PersonDto personDto = mapper.Map(person);
+            //PersonDto personDto = mapper.Map(person);
 
-            Console.WriteLine("Name: {0}", personDto.FullName);
-            Console.WriteLine("Age: {0}", personDto.AgeInYears);
+            //Console.WriteLine("Name: {0}", personDto.FullName);
+            //Console.WriteLine("Age: {0}", personDto.AgeInYears);
 
             Console.ReadKey();
         }

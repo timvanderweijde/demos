@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1", "Exercise\Exercise1.csproj", "{AEF59ADD-AED7-4304-A7A0-E983AD56B011}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise 1", "Exercise\Exercise 1.csproj", "{AEF59ADD-AED7-4304-A7A0-E983AD56B011}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise 3", "Exercise 3\Exercise 3.csproj", "{BCE27681-5AD5-4420-A749-AA0A3E78B876}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise 4", "Exercise 4\Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise 4.Tests", "Exercise 4.Tests\Exercise 4.Tests.csproj", "{E8954BCA-7214-448A-9B15-1B9DDBD48C2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise5", "Exercise5\Exercise5.csproj", "{E8070AA8-487E-453A-91C7-D5CAD1A456BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise 5", "Exercise5\Exercise 5.csproj", "{E8070AA8-487E-453A-91C7-D5CAD1A456BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise 6", "Exercise 6\Exercise 6.csproj", "{AE0A2ADE-C64B-452E-A955-51FC682FD445}"
 EndProject

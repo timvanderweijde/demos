@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Exercise
+namespace Exercise_1
 {
     internal class Program
     {
