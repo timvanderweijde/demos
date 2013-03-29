@@ -1,11 +1,35 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Exercise_5
 {
+    public class Test
+    {
+        public string SomeProperty { get; set; }
+    }
+
     internal class Program
     {
         private static void Main(string[] args)
         {
+            Test test = new Test();
+
+
+            Type type = typeof(Test);
+            PropertyInfo info = type.GetProperty("SomeProperty");
+            info.SetValue(test, "Een waarde");
+
+
+            Console.WriteLine(test.SomeProperty);
+            Console.ReadKey();
+
+
+
+
+
+
+
+
             //var mapper = new Mapper<Person, PersonDto>();
             //mapper.AddMapping(x => x.Name, y => y.FullName);
             //mapper.AddMapping(x => x.Age, y => y.AgeInYears);

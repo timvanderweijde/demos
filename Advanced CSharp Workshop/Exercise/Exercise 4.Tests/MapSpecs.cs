@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Exercise_4.Tests
@@ -11,14 +10,14 @@ namespace Exercise_4.Tests
         public void SimpleProjectionToDifferentType()
         {
             int[] source = {1, 5, 2};
-            var result = source.Select(x => x.ToString());
+            var result = source.Map(x => x.ToString());
             result.Should().Equal(new []{"1", "5", "2"});
         }
         
         [TestMethod]
         public void ExecutionIsDeferred()
         {
-            ThrowingEnumerable.AssertDeferred(src => src.Select(x => x > 0));
+            ThrowingEnumerable.AssertDeferred(src => src.Map(x => x > 0));
         }
     }
 }
