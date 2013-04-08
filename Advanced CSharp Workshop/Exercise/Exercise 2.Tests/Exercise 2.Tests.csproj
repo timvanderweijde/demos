@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E8954BCA-7214-448A-9B15-1B9DDBD48C2D}</ProjectGuid>
+    <ProjectGuid>{037E9F76-5E99-450C-B4CA-6409C9B869EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Exercise_4.Tests</RootNamespace>
-    <AssemblyName>Exercise 4.Tests</AssemblyName>
+    <RootNamespace>Exercise_2.Tests</RootNamespace>
+    <AssemblyName>Exercise 2.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,22 +55,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="4.2\EmptySpecs.cs" />
+    <Compile Include="FibonacciSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="4.2\RangeSpecs.cs" />
-    <Compile Include="4.1\ReduceSpecs.cs" />
-    <Compile Include="4.2\RepeatSpecs.cs" />
-    <Compile Include="ThrowingEnumerable.cs" />
-    <Compile Include="4.1\MapSpecs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Exercise2\Exercise 2.csproj">
+      <Project>{04393d9b-b565-4b69-9cf5-4be1c7ae2680}</Project>
+      <Name>Exercise 2</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Exercise 4\Exercise 4.csproj">
-      <Project>{6c420170-bb5b-4841-b7d8-1c525ddc8716}</Project>
-      <Name>Exercise 4</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

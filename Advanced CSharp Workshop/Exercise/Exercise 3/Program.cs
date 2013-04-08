@@ -14,6 +14,9 @@ namespace Exercise_3
         {
             var numbers = new[] {3, 4, 6, 2, 1, 9, 7, 5};
 
+            // The bubble sort method should be made more reusable by being able to 
+            // supply a comparison delegate instead of a sort type.
+
             BubbleSort(numbers, SortType.Ascending);
 
             foreach (int number in numbers)

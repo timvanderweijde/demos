@@ -7,9 +7,11 @@ namespace Exercise_1
     {
         private static void Main(string[] args)
         {
-            var myClass = new Class();
+            var classOfStudents = new ClassOfStudents();
 
-            //foreach (Student student in myClass)
+            // The code below does not compile, because the ClassOfStudents type is not enumerable.
+            // Uncomment the code and make sure it compiles by modifying the ClassOfStudents type so that it's enumerable.
+            //foreach (Student student in classOfStudents)
             //{
             //    Console.WriteLine(student.Name);
             //}
@@ -23,7 +25,7 @@ namespace Exercise_1
         public string Name { get; set; }
     }
 
-    public class Class
+    public class ClassOfStudents
     {
         private readonly List<Student> students = new List<Student>
             {
