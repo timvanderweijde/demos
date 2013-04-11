@@ -4,6 +4,8 @@ namespace Exercise_3
 {
     internal class Program
     {
+        public delegate bool ComparisonDelegate(int first, int second);
+
         public enum SortType
         {
             Ascending,
@@ -17,7 +19,10 @@ namespace Exercise_3
             // The bubble sort method should be made more reusable by being able to 
             // supply a comparison delegate instead of a sort type.
 
-            BubbleSort(numbers, SortType.Ascending);
+            ComparisonDelegate ascending = (first, second) => first > second;
+            ComparisonDelegate descending = (first, second) => first < second;
+
+            BubbleSort(numbers, ascending);
 
             foreach (int number in numbers)
             {
@@ -27,7 +32,7 @@ namespace Exercise_3
             Console.ReadKey();
         }
 
-        public static void BubbleSort(int[] items, SortType sortOrder)
+        public static void BubbleSort(int[] items, ComparisonDelegate comparison)
         {
             int i;
             int j;
@@ -42,27 +47,11 @@ namespace Exercise_3
             {
                 for (j = 1; j <= i; j++)
                 {
-                    switch (sortOrder)
+                    if (comparison(items[j - 1], items[j]))
                     {
-                        case SortType.Ascending:
-                            if (items[j - 1] > items[j])
-                            {
-                                temp = items[j - 1];
-                                items[j - 1] = items[j];
-                                items[j] = temp;
-                            }
-
-                            break;
-
-                        case SortType.Descending:
-                            if (items[j - 1] < items[j])
-                            {
-                                temp = items[j - 1];
-                                items[j - 1] = items[j];
-                                items[j] = temp;
-                            }
-
-                            break;
+                        temp = items[j - 1];
+                        items[j - 1] = items[j];
+                        items[j] = temp;
                     }
                 }
             }
