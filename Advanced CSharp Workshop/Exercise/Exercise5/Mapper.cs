@@ -13,8 +13,6 @@ namespace Exercise_5
 
         public TDestination Map(TSource source)
         {
-            // Use reflection to get / set the properties. At the least you will need the 
-            // PropertyInfo class to do this. 
 
             throw new NotImplementedException();
         }
