@@ -11,8 +11,8 @@ namespace Exercise_8
 {
     public partial class Form1 : Form
     {
-        private CancellationTokenSource cts;
         private readonly FinancialService financialService = new FinancialService();
+        private CancellationTokenSource cts;
         private IEnumerable<Division> divisions;
 
         public Form1()
@@ -42,12 +42,30 @@ namespace Exercise_8
         {
             cancelButton.Enabled = true;
             cts = new CancellationTokenSource();
+            revenueTextBox.Text = "Calculating";
+
             Task.Factory.StartNew(x => financialService.GetRevenue((Region) x, cts.Token), regionCombo.SelectedValue,
                                   cts.Token)
                 .ContinueWith(x =>
                     {
-                        revenueTextBox.Text = x.Result.ToString(CultureInfo.InvariantCulture);
-                        cancelButton.Enabled = false;
+                        if (x.Exception != null)
+                        {
+                            x.Exception.Flatten().Handle(ex =>
+                                {
+                                    if (ex is InvalidOperationException)
+                                    {
+                                        MessageBox.Show(ex.Message);
+                                        revenueTextBox.Text = string.Empty;
+                                        return true;
+                                    }
+                                    return false;
+                                });
+                        }
+                        else
+                        {
+                            revenueTextBox.Text = x.Result.ToString(CultureInfo.InvariantCulture);
+                            cancelButton.Enabled = false;
+                        }
                     }, new CancellationToken(), TaskContinuationOptions.NotOnCanceled,
                               TaskScheduler.FromCurrentSynchronizationContext())
                 .ContinueWith(x =>
@@ -55,7 +73,8 @@ namespace Exercise_8
                         revenueTextBox.Text = string.Empty;
                         cancelButton.Enabled = false;
                     }, new CancellationToken(), TaskContinuationOptions.OnlyOnCanceled,
-                              TaskScheduler.FromCurrentSynchronizationContext());
+                              TaskScheduler.FromCurrentSynchronizationContext())
+                .ContinueWith(x => { cancelButton.Enabled = false; }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

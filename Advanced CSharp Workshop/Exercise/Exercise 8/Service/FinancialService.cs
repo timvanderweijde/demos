@@ -55,7 +55,7 @@ namespace Exercise_8.Service
                 case Region.Africa:
                     return 5800;
                 case Region.Asia:
-                    return 54422.12m;
+                    throw new InvalidOperationException("The Asia region does not support revenue calculation.");
                 case Region.Australia:
                     return 54422;
                 default:
