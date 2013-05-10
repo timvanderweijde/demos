@@ -16,7 +16,7 @@ namespace Exercise_8.Service
         {
             Thread.Sleep(1500);
 
-            return (Region[])Enum.GetValues(typeof (Region));
+            return (Region[]) Enum.GetValues(typeof (Region));
         }
 
         public IEnumerable<Division> GetDivisions()
@@ -36,10 +36,15 @@ namespace Exercise_8.Service
                 };
         }
 
-        public decimal GetRevenue(Region region)
+        public decimal GetRevenue(Region region, CancellationToken token)
         {
             // Some really complicated calculation, or its using Oracle
-            Thread.Sleep(5000);
+            for (int i = 0; i < 50; i++)
+            {
+                token.ThrowIfCancellationRequested();
+
+                Thread.Sleep(100);
+            }
 
             switch (region)
             {

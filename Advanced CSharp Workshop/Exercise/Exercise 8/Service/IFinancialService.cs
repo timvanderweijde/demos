@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 
 namespace Exercise_8.Service
 {
     public interface IFinancialService
     {
-        decimal GetRevenue(Region region);
+        decimal GetRevenue(Region region, CancellationToken token);
         IEnumerable<Region> GetRegions();
         IEnumerable<Division> GetDivisions();
     }
