@@ -35,12 +35,9 @@ namespace Exercise_7
             Stopwatch sw = Stopwatch.StartNew();
             Console.WriteLine("Calculation started");
 
-            var totals = orders.Select(o => new {o.CustomerName, OrderTotal = o.CalculateTotalOfOrders()});
+            var totals = orders.AsParallel().Select(o => new {o.CustomerName, OrderTotal = o.CalculateTotalOfOrders()});
 
-            foreach (var total in totals)
-            {
-                InvokeSomeWebService(total.CustomerName, total.OrderTotal);
-            }
+            totals.ForAll(total => InvokeSomeWebService(total.CustomerName, total.OrderTotal));
 
             long elapsed = sw.ElapsedMilliseconds;
 

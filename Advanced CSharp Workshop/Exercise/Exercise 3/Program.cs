@@ -19,10 +19,7 @@ namespace Exercise_3
             // The bubble sort method should be made more reusable by being able to 
             // supply a comparison delegate instead of a sort type.
 
-            ComparisonDelegate ascending = (first, second) => first > second;
-            ComparisonDelegate descending = (first, second) => first < second;
-
-            BubbleSort(numbers, ascending);
+            BubbleSort(numbers, AscendingComparison);
 
             foreach (int number in numbers)
             {
@@ -30,6 +27,16 @@ namespace Exercise_3
             }
 
             Console.ReadKey();
+        }
+
+        private static bool AscendingComparison(int first, int second)
+        {
+            return first < second;
+        }
+
+        private static bool DescendingComparison(int first, int second)
+        {
+            return first > second;
         }
 
         public static void BubbleSort(int[] items, ComparisonDelegate comparison)
